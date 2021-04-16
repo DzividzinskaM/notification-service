@@ -1,8 +1,8 @@
 FROM node:14.12.0-alpine
 
-RUN mkdir producer-service
+RUN mkdir notification-service
 
-WORKDIR /producer-service
+WORKDIR /notification-service
 
 COPY package*.json ./
 
