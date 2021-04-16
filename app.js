@@ -9,6 +9,10 @@ const serviceRouter = require('./services/services.route');
 
 const PORT = 4000;
 
+router.get('/', async (ctx) => {
+    ctx.body = 'pets notification service';
+});
+
 app.use(logger());
 app.use(router.routes()).use(router.allowedMethods());
 app.use(serviceRouter.routes());
