@@ -1,15 +1,15 @@
 const amqp = require('amqplib');
 
-const produce = async () => {
-    const amqpServer = 'amqp://pets:pets@localhost:5672';
+const produce = async (messageInput) => {
+    //const amqpServer = 'amqp://pets:pets@localhost:5672';
     //const amqpServer = 'amqp://pets:pets@10.20.1.180:5672';
-    //const amqpServer = 'amqp://pets:pets@my-release-rabbitmq:5672';
+    const amqpServer = 'amqp://pets:pets@my-release-rabbitmq:5672';
     const conn = await amqp.connect(amqpServer);
     const ch = await conn.createChannel();
     const exch = 'test_exchange';
-    const q = 'lab3';
+    const q = 'm_pets';
     const rkey = 'test_route';
-    const msg = 'test for lab 3';
+    const msg = messageInput;
     await ch
         .assertExchange(exch, 'direct', {
             durable: true
